@@ -25,3 +25,15 @@ sudo usermod -aG docker $USER
 newgrp docker
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+
+# Setup Git
+# git config --global user.name ""
+# git config --global user.email ""
+# git config --global init.defaultBranch main
+
+# Setup SSH
+# ssh-keygen -t ed25519 -C "your_email@example.com"
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_ed25519
+# xsel --clipboard < ~/.ssh/id_ed25519.pub
+
