@@ -1,0 +1,18 @@
+# /bin/sh
+
+EDITOR=nvim
+BROWSER=google-chrome-stable
+
+picom &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+$HOME/.screenlayout/default.sh &
+$HOME/.config/awesome/scripts/lock-screen.sh &
+unclutter -idle 10 &
+
+variety &
+nm-applet &
+blueberry-tray &
+fcitx5 &
+xfce4-power-manager &
+xfce4-clipman &
+flameshot &
