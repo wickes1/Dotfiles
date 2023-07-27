@@ -219,9 +219,10 @@ lvim.builtin.which_key.mappings["t"] = {
 -- Alt-]	Cycle to the previous suggestion
 
 
-
+-- <M> is alt
+-- <C> is ctrl
 local cmp = require "cmp"
-lvim.builtin.cmp.mapping["<C-e>"] = function(fallback)
+lvim.builtin.cmp.mapping["<M-t>"] = function(fallback)
     cmp.mapping.abort()
     local copilot_keys = vim.fn["copilot#Accept"]()
     if copilot_keys ~= "" then
