@@ -614,7 +614,7 @@ awful.keyboard.append_global_keybindings(
         -- Application launcher
         awful.key({ "Mod1", }, "space",
             function()
-                awful.util.spawn("rofi -show combi -dpi 150")
+                awful.util.spawn("rofi -show combi -combi-modes 'window,run,ssh' -modes combi -dpi 150")
             end),
 
         -- Power menu
