@@ -21,6 +21,9 @@ chmod +x setup.sh
 cd ..
 sudo rm -r rofi
 
+# Setup power menu
+yay -S --noconfirm archlinux-logout-git
+
 # Setup wallpaper
 # yay -S --noconfirm feh
 # git clone --depth 1 https://github.com/D3Ext/aesthetic-wallpapers.git ~/Pictures/aesthetic-wallpapers
