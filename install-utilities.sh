@@ -93,7 +93,8 @@ yay -S --noconfirm \
     lf \
     xclock \
     inxi \
-    xsel
+    xsel \
+    axel
 
 tldr --update
 
