@@ -43,6 +43,7 @@ cp ./dotfiles/.screenlayout ~ -r
 
 # Setup screenshot
 yay -S --noconfirm flameshot
+rsync -a ./dotfiles/flameshot/ ~/.config/flameshot
 
 # Setup hide cursor
 yay -S --noconfirm unclutter
