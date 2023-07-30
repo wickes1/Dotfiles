@@ -140,6 +140,11 @@ formatters.setup {
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
         filetypes = { "typescript", "typescriptreact" },
     },
+    {
+        command = "shfmt",
+        filetypes = { "sh" },
+        extra_args = { "-i", "4" },
+    }
 }
 
 -- -- set additional linters

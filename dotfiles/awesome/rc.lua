@@ -126,15 +126,28 @@ end)
 -- Keyboard map indicator and switchers
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
--- My customize widget
+-- My custom widget
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local cw = calendar_widget({
+    theme = 'nord',
+    placement = 'top_right',
+    start_sunday = true,
+    radius = 8,
+    previous_month_button = 4,
+    next_month_button = 5
+})
+-- Create a textclock widget
+mytextclock = wibox.widget.textclock()
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.

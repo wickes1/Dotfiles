@@ -26,7 +26,7 @@ rsync $BASEDIR/dotfiles/zsh-plugins/ $ZSH_CUSTOM/plugins/ -a --delete-after
 # Editors
 yay -S --noconfirm neovim-nightly-bin neovide
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-rsync $BASEDIR/dotfiles/lvim ~/.config -a --delete-after
+rsync $BASEDIR/dotfiles/lvim ~/.config -a
 # bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)
 
 # Terminal

@@ -1,12 +1,12 @@
 export ZSH="$HOME/.oh-my-zsh"
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 zstyle ':omz:update' frequency 14
 
 ZSH_THEME="bira"
 ENABLE_CORRECTION="false"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="false"
-setopt hist_ignore_space 
+setopt hist_ignore_space
 
 plugins=(
     sudo
