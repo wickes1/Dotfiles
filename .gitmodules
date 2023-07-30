@@ -13,3 +13,9 @@
 [submodule "dotfiles/zsh-plugins/zsh-defer"]
 	path = dotfiles/zsh-plugins/zsh-defer
 	url = https://github.com/romkatv/zsh-defer.git
+[submodule "dotfiles/awesome/awesome-wm-widgets"]
+	path = dotfiles/awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule "dotfiles/awesome/lain"]
+	path = dotfiles/awesome/lain
+	url = https://github.com/lcpz/lain.git
