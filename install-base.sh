@@ -22,6 +22,8 @@ git submodule add https://github.com/zsh-users/zsh-autosuggestions ./dotfiles/zs
 git submodule add https://github.com/qoomon/zsh-lazyload.git ./dotfiles/zsh-plugins/zsh-lazyload
 rsync $BASEDIR/dotfiles/zsh/ ~ -a
 rsync $BASEDIR/dotfiles/zsh-plugins/ $ZSH_CUSTOM/plugins/ -a --delete-after
+rsync $BASEDIR/dotfiles/fsh ~/.config -a --delete-after
+fast-theme XDG:catppuccin-macchiato
 
 # Editors
 yay -S --noconfirm neovim-nightly-bin neovide
