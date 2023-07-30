@@ -1,29 +1,28 @@
-# Thinkpad T480s specific installation
+### Thinkpad T480s specific installation ###
+
+BASEDIR=$(dirname $(realpath -e $0))
 
 # System undervolt
 # https://wiki.archlinux.org/title/Undervolting_CPU
-yay -S --noconfirm \
-    intel-undervolt
-sudo cp ./dotfiles/intel-undervolt.conf /etc/
+yay -S --noconfirm intel-undervolt
+sudo rsync $BASEDIR/dotfiles/intel-undervolt.conf /etc/ -a
 sudo intel-undervolt apply
 sudo intel-undervolt read
 sudo systemctl enable intel-undervolt --now
 
 # Firmwares
-yay -S --noconfirm \
-    intel-ucode \
-    iucode-tool
+yay -S --noconfirm intel-ucode iucode-tool
 
 # Driver
 yay -S --noconfirm xf86-video-intel
 
 # GPU switch to integrate mode
-yay -S --noconfirm envycontrol
-sudo envycontrol -s integratedA
+# Alias in zshrc
+envycontrol -s integrated
 
 # boot up modules
 # lsmod: list loaded kernel modules
-sudo cp ./dotfiles/modules-load.d /etc/ -r
+rsync $BASEDIR/dotfiles/modules-load.d /etc/ -a
 
 # Fingerprint
 # https://github.com/duyhenryer/Login-with-Fprint-on-ArchLinux
@@ -31,5 +30,3 @@ sudo cp ./dotfiles/modules-load.d /etc/ -r
 # yay -S --noconfirm python-validity
 # fprintd-enroll
 # sudo systemctl enable open-fprintd-resume open-fprintd-suspend python3-validity --now
-
-yay -Sc --noconfirm

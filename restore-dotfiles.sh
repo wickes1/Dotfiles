@@ -1,8 +1,8 @@
-rsync ~/Dotfiles/dotfiles/awesome ~/.config -a --delete-after
-rsync ~/Dotfiles/dotfiles/home/ ~ -a
-rsync ~/Dotfiles/dotfiles/zsh/.zshrc ~/.zshrc
-rsync ~/Dotfiles/dotfiles/zsh/.zshenv ~/.zshenv
-rsync ~/Dotfiles/dotfiles/zsh/.scripts.sh ~/.scripts.sh
-rsync ~/Dotfiles/dotfiles/kitty ~/.config -a --delete-after
-rsync ~/Dotfiles/dotfiles/lvim ~/.config -a --delete-after
+BASEDIR=$(dirname $(realpath -e $0))
 
+rsync $BASEDIR/dotfiles/awesome ~/.config -a --delete-after
+rsync $BASEDIR/dotfiles/home/ ~ -a
+rsync $BASEDIR/dotfiles/zsh/ ~ -a
+rsync $BASEDIR/dotfiles/zsh-plugins/ $ZSH_CUSTOM/plugins/ -a --delete-after
+rsync $BASEDIR/dotfiles/kitty ~/.config -a --delete-after
+rsync $BASEDIR/dotfiles/lvim ~/.config -a --delete-after

@@ -1,18 +1,24 @@
-# Setup display manager
+### Install window manager and related tools ###
+
+BASEDIR=$(dirname $(realpath -e $0))
+
+# Display manager
 yay -S --noconfirm \
     sddm \
     sddm-sugar-candy-git
 sudo systemctl enable sddm.service
-sudo cp ./dotfiles/sddm.conf.d /etc -r
+sudo rsync $BASEDIR/dotfiles/sddm.conf /etc/ -a
 
-# Setup display server and windows manager
+# Display server, windows manager and compositor
 yay -S --noconfirm \
     xorg \
-    awesome-git
-cp ./dotfiles/awesome ~/.config -r
-cp ./dotfiles/home/. ~ -a
+    awesome-git \
+    picom-git
+rsync $BASEDIR/dotfiles/awesome ~/.config -a
+rsync $BASEDIR/dotfiles/picom ~/.config -a
+rsync $BASEDIR/dotfiles/home/. ~ -a
 
-# Setup application launcher
+# Application launcher
 yay -S --noconfirm rofi
 git clone --depth=1 https://github.com/adi1090x/rofi.git
 cd rofi
@@ -21,25 +27,19 @@ chmod +x setup.sh
 cd ..
 sudo rm -r rofi
 
-# Setup power menu
+# Power menu
 yay -S --noconfirm archlinux-logout-git
 
-# Setup wallpaper
+# wallpaper
 # yay -S --noconfirm feh
 # git clone --depth 1 https://github.com/D3Ext/aesthetic-wallpapers.git ~/Pictures/aesthetic-wallpapers
 yay -S --noconfirm variety
 
-# Setup screen locker
-yay -S --noconfirm \
-    betterlockscreen \
-    xidlehook
+# screen locker
+yay -S --noconfirm betterlockscreen xidlehook
 
-# Setup xorg compositor
-yay -S --noconfirm picom-git
-cp ./dotfiles/picom ~/.config/ -r
-
-# Setup external monitor only
-cp ./dotfiles/.screenlayout ~ -r
+# Setup screenlayout
+rsync $BASEDIR/dotfiles/.screenlayout ~ -a
 
 # Setup screenshot
 yay -S --noconfirm flameshot
@@ -47,4 +47,3 @@ rsync -a ./dotfiles/flameshot/ ~/.config/flameshot
 
 # Setup hide cursor
 yay -S --noconfirm unclutter
-

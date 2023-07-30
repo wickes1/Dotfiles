@@ -1,3 +1,7 @@
+### Install development tools ###
+
+BASEDIR=$(dirname $(realpath -e $0))
+
 yay -S --noconfirm \
     dbeaver \
     visual-studio-code-bin \
@@ -6,7 +10,7 @@ yay -S --noconfirm \
 # Joplin CLI
 NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
 sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
-cp ./dotfiles/joplin ~/.config/ -r
+rsync $BASEDIR/dotfiles/joplin ~/.config/ -a
 
 # Python setup
 curl -sSL https://install.python-poetry.org | python3 -
@@ -14,11 +18,18 @@ yay -S --noconfirm pipx
 pipx install datamodel-code-generator
 pipx install fastapi_template
 
+# Rust setup
+cargo install csvlens
+
+# Node setup
+# Uninstall system node/npm if installed
+yay -S --noconfirm nvm yarn
+nvm install --lts
+npm install --global serve
+
 # Docker setup
 # Reboot to apply changes
-yay -S --noconfirm \
-    docker \
-    docker-compose
+yay -S --noconfirm docker docker-compose
 sudo systemctl enable docker.service --now
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
@@ -37,4 +48,3 @@ docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/id_ed25519
 # xsel --clipboard < ~/.ssh/id_ed25519.pub
-
