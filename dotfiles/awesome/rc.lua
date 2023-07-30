@@ -21,8 +21,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Custom local library
--- local lain = require("lain")
+local lain = require("lain")
 
 
 -- {{{ Error handling
@@ -130,11 +129,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- My custom widget
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
-local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local cw = calendar_widget({
+local volume_widget     = require('awesome-wm-widgets.pactl-widget.volume')
+local cpu_widget        = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local net_speed_widget  = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local calendar_widget   = require("awesome-wm-widgets.calendar-widget.calendar")
+local cw                = calendar_widget({
     theme = 'nord',
     placement = 'top_right',
     start_sunday = true,
@@ -142,8 +141,25 @@ local cw = calendar_widget({
     previous_month_button = 4,
     next_month_button = 5
 })
+-- Lain widgets
+local separators        = lain.util.separators
+local arrow             = separators.arrow_left
+local markup            = lain.util.markup
+local dpi               = require("beautiful.xresources").apply_dpi
+local cpuicon           = wibox.widget.imagebox(os.getenv("HOME") .. "/.config/awesome/icons/cpu.png")
+local cpu               = lain.widget.cpu({
+    settings = function()
+        widget:set_markup(markup.fontfg("sans 8", "#e33a6e", cpu_now.usage .. "% "))
+    end
+})
+local memicon           = wibox.widget.imagebox(os.getenv("HOME") .. "/.config/awesome/icons/mem.png")
+local memory            = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.fontfg("sans 8", "#ffffff", mem_now.used .. "M "))
+    end
+})
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock             = wibox.widget.textclock()
 mytextclock:connect_signal("button::press",
     function(_, _, _, button)
         if button == 1 then cw.toggle() end
@@ -221,6 +237,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
                 layout = wibox.layout.fixed.horizontal,
                 mykeyboardlayout,
                 wibox.widget.systray(),
+                -- memicon,
+                memory.widget,
                 cpu_widget({
                     width = 70,
                     step_width = 2,
