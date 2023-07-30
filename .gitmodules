@@ -7,3 +7,9 @@
 [submodule "dotfiles/zsh-plugins/zsh-lazyload"]
 	path = dotfiles/zsh-plugins/zsh-lazyload
 	url = https://github.com/qoomon/zsh-lazyload.git
+[submodule "dotfiles/zsh-plugins/zsh-defer.git"]
+	path = dotfiles/zsh-plugins/zsh-defer.git
+	url = https://github.com/romkatv/zsh-defer.git
+[submodule "dotfiles/zsh-plugins/zsh-defer"]
+	path = dotfiles/zsh-plugins/zsh-defer
+	url = https://github.com/romkatv/zsh-defer.git
