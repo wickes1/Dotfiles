@@ -30,14 +30,15 @@ export SYSTEMD_EDITOR="nvim"
 export EDITOR="nvim"
 
 # Aliases
-alias envycontrol="curl -s https://raw.githubusercontent.com/bayasdev/envycontrol/main/envycontrol.py | sudo python -"
-alias ll="lsd -lh"
-alias c="copypath"
-alias nv="$HOME/Dotfiles/lvim-gui.sh"
-alias v="lvim ."
 alias backup="rsync -a --delete-after ~/Dotfiles /run/media/$USER/Ventoy/"
-alias restore="~/Dotfiles/restore-dotfiles.sh"
 alias bk="backup; restore; echo 'Dotfiles backup and restored'"
+alias c="copypath"
+alias envycontrol="curl -s https://raw.githubusercontent.com/bayasdev/envycontrol/main/envycontrol.py | sudo python -"
+alias h='history'
+alias ll="lsd -lh"
+alias nv="$HOME/Dotfiles/lvim-gui.sh"
+alias restore="~/Dotfiles/restore-dotfiles.sh"
+alias v="lvim ."
 alias wtr="curl -s wttr.in"
 
 # Other
