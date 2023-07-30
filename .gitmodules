@@ -1,0 +1,9 @@
+[submodule "dotfiles/zsh-plugins/zsh-autosuggestions"]
+	path = dotfiles/zsh-plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "dotfiles/zsh-plugins/fast-syntax-highlighting"]
+	path = dotfiles/zsh-plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+[submodule "dotfiles/zsh-plugins/zsh-lazyload"]
+	path = dotfiles/zsh-plugins/zsh-lazyload
+	url = https://github.com/qoomon/zsh-lazyload.git
