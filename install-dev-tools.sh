@@ -19,6 +19,8 @@ pipx install datamodel-code-generator
 pipx install fastapi_template
 
 # Rust setup
+yay -S --noconfirm rustup
+rustup default stable
 cargo install csvlens
 
 # Node setup
