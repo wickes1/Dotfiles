@@ -35,3 +35,13 @@ yay -S --noconfirm \
 
 tldr --update
 
+# Dev software
+yay -S --noconfirm \
+    dbeaver \
+    visual-studio-code-bin \
+    joplin-appimage
+
+# Joplin CLI
+NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
+sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
+rsync $BASEDIR/dotfiles/joplin ~/.config/ -a

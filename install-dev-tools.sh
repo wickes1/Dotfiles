@@ -2,16 +2,6 @@
 
 BASEDIR=$(dirname $(realpath -e $0))
 
-yay -S --noconfirm \
-    dbeaver \
-    visual-studio-code-bin \
-    joplin-appimage
-
-# Joplin CLI
-NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
-sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
-rsync $BASEDIR/dotfiles/joplin ~/.config/ -a
-
 # Python setup
 curl -sSL https://install.python-poetry.org | python3 -
 yay -S --noconfirm pipx
