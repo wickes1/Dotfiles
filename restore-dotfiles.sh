@@ -7,3 +7,4 @@ rsync $BASEDIR/dotfiles/zsh-plugins/ ~/.oh-my-zsh/custom/plugins -a --delete-aft
 rsync $BASEDIR/dotfiles/kitty ~/.config -a --delete-after
 rsync $BASEDIR/dotfiles/lvim ~/.config -a
 rsync $BASEDIR/dotfiles/fsh ~/.config -a --delete-after
+rsync $BASEDIR/dotfiles/lf ~/.config -a --delete-after

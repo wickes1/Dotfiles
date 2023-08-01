@@ -1,3 +1,5 @@
+BASEDIR=$(dirname $(realpath -e $0))
+
 # GUI software
 yay -S --noconfirm \
     arandr \
@@ -27,6 +29,7 @@ yay -S --noconfirm \
     fnm \
     xplr \
     lf \
+    ueberzugpp \
     xclock \
     inxi \
     xsel \
@@ -34,6 +37,7 @@ yay -S --noconfirm \
     entr
 
 tldr --update
+rsync $BASEDIR/dotfiles/lf ~/.config/ -a
 
 # Dev software
 yay -S --noconfirm \
