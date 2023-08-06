@@ -179,6 +179,9 @@ lvim.plugins = {
             vim.g.copilot_no_tab_map = true
             vim.g.copilot_assume_mapped = true
             vim.g.copilot_tab_fallback = ""
+            vim.g.copilot_filetypes = {
+
+            }
         end
     },
     {
@@ -217,13 +220,11 @@ lvim.builtin.which_key.mappings["t"] = {
     r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
--- copilot
+-- github/copilot.vim
 -- Tab	Accept the suggestion
 -- Ctrl-]	Dismiss the current suggestion
 -- Alt-[	Cycle to the next suggestion
 -- Alt-]	Cycle to the previous suggestion
-
-
 -- <M> is alt
 -- <C> is ctrl
 local cmp = require "cmp"

@@ -157,6 +157,12 @@ The current setup is base on arcolinuxb-xfce-v23.05.04-x86_64.iso
 flameshot &
 disown
 ```
+```bash
+#!/bin/bash
+
+killall -q polybar
+polybar example 2>&1 | tee -a /tmp/polybar.log & disown
+```
 
 - resources:
 [Best tool comparison](https://www.linuxlinks.com/ClipboardManagers/)

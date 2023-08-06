@@ -10,8 +10,10 @@ sudo intel-undervolt apply
 sudo intel-undervolt read
 sudo systemctl enable intel-undervolt --now
 
-# Firmwares
+# Intel firmware
 yay -S --noconfirm intel-ucode iucode-tool
+# AMD firmware
+# yay -S --noconfirm amd-ucode
 
 # Driver
 yay -S --noconfirm xf86-video-intel
