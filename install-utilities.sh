@@ -38,6 +38,7 @@ yay -S --noconfirm \
 
 tldr --update
 rsync $BASEDIR/dotfiles/lf ~/.config/ -a
+rsync $BASEDIR/dotfiles/ripgrep ~/.config/ -a
 
 # Dev software
 yay -S --noconfirm \
