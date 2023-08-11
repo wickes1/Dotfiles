@@ -38,12 +38,16 @@ yay -S --noconfirm variety
 # screen locker
 yay -S --noconfirm betterlockscreen xidlehook
 
-# Setup screenlayout
+# Screenlayout
 rsync $BASEDIR/dotfiles/.screenlayout ~ -a
 
-# Setup screenshot
+# Screenshot
 yay -S --noconfirm flameshot
 rsync -a ./dotfiles/flameshot/ ~/.config/flameshot
 
-# Setup hide cursor
+# Hide cursor
 yay -S --noconfirm unclutter
+
+# Keybinds
+yay -S --noconfirm xbindkeys xkeyboard-config
+rsync $BASEDIR/dotfiles/xbindkeys/. ~ -a
