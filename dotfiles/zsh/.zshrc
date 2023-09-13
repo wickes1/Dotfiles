@@ -42,6 +42,7 @@ alias nv="~/Dotfiles/lvim-gui.sh"
 alias restore="~/Dotfiles/restore-dotfiles.sh"
 alias v="lvim ."
 alias wtr="curl -s wttr.in"
+alias fm="nohup thunar >/dev/null 2>&1 &"
 
 # Other
 eval "$(zoxide init zsh)"
