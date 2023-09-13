@@ -65,6 +65,9 @@ yay -S --noconfirm \
 sudo systemctl enable preload.service --now
 sudo systemctl enable auto-cpufreq.service --now
 
+# Set Linux use local time
+timedatectl set-local-rtc 1 --adjust-system-clock
+
 # Input method
 yay -S --noconfirm \
     fcitx5-im \
@@ -72,5 +75,6 @@ yay -S --noconfirm \
     fcitx5-material \
     fcitx5-material-color
 rsync $BASEDIR/dotfiles/fcitx5 ~/.config -a
+
 # Add rime in GUI
 fcitx5-config-qt
