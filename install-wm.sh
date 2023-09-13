@@ -38,9 +38,6 @@ yay -S --noconfirm variety
 # screen locker
 yay -S --noconfirm betterlockscreen xidlehook
 
-# Screenlayout
-rsync $BASEDIR/dotfiles/.screenlayout ~ -a
-
 # Screenshot
 yay -S --noconfirm flameshot
 rsync -a ./dotfiles/flameshot/ ~/.config/flameshot
