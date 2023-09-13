@@ -249,14 +249,19 @@ screen.connect_signal("request::desktop_decoration", function(s)
                     color = '#434c5e'
                 }),
                 net_speed_widget(),
-                batteryarc_widget({
-                    show_current_level = true,
-                    arc_thickness = 1,
-                }),
+                -- batteryarc_widget({
+                --     show_current_level = true,
+                --     arc_thickness = 1,
+                -- }),
+                -- brightness_widget {
+                --     type = 'icon_and_text',
+                --     program = 'brightnessctl',
+                --     step = 2,
+                -- },
                 brightness_widget {
                     type = 'icon_and_text',
-                    program = 'brightnessctl',
-                    step = 2,
+                    program = 'ddcutil',
+                    step = 10,
                 },
                 volume_widget {
                     widget_type = 'arc',
@@ -675,11 +680,11 @@ awful.keyboard.append_global_keybindings(
         -- awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("brightnessctl set +10") end),
         awful.key({}, "XF86MonBrightnessDown", function()
             -- brightness_widget:dec()
-            awful.util.spawn("ddcutil setvcp 10 - 10 --sleep-multiplier .1")
+            awful.util.spawn("ddcutil setvcp 10 - 10 --sleep-multiplier 1")
         end),
         awful.key({}, "XF86MonBrightnessUp", function()
             -- brightness_widget:inc()
-            awful.util.spawn("ddcutil setvcp 10 + 10 --sleep-multiplier .1")
+            awful.util.spawn("ddcutil setvcp 10 + 10 --sleep-multiplier 1")
         end),
 
         -- Volume
