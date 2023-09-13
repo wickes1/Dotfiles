@@ -34,7 +34,9 @@ yay -S --noconfirm \
     inxi \
     xsel \
     axel \
-    entr
+    entr \
+    ani-cli-git \
+    nvtop
 
 tldr --update
 rsync $BASEDIR/dotfiles/lf ~/.config/ -a
