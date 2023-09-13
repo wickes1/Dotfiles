@@ -6,7 +6,6 @@
 --
 local dap = require("dap");
 
-
 --[[
 lvim is the global options object
 
@@ -22,12 +21,12 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
 lvim.lint_on_save = true
-lvim.format_on_save = true
 -- transparent
 lvim.transparent_window = true
 -- vim
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.timeoutlen = 1000 -- default 1000
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -82,18 +81,8 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-    "bash",
-    "c",
-    "javascript",
-    "json",
-    "lua",
-    "python",
-    "typescript",
-    "tsx",
-    "css",
-    "rust",
-    "java",
-    "yaml",
+    "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx",
+    "css", "rust", "java", "yaml"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -138,13 +127,9 @@ formatters.setup {
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         extra_args = { "--print-with", "100" },
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "typescript", "typescriptreact" },
+        filetypes = { "typescript", "typescriptreact" }
     },
-    {
-        command = "shfmt",
-        filetypes = { "sh" },
-        extra_args = { "-i", "4" },
-    }
+    { command = "shfmt", filetypes = { "sh" }, extra_args = { "-i", "4" } }
 }
 
 -- -- set additional linters
@@ -165,49 +150,41 @@ formatters.setup {
 --   },
 -- }
 
-
 -- rust
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers,
+    { "rust_analyzer" })
 
 -- Additional Plugins
 lvim.plugins = {
-    { "folke/tokyonight.nvim" },
-    {
-        "github/copilot.vim",
-        event = "VeryLazy",
-        config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.g.copilot_assume_mapped = true
-            vim.g.copilot_tab_fallback = ""
-            vim.g.copilot_filetypes = {
-
-            }
-        end
-    },
-    {
-        "folke/trouble.nvim",
-        cmd = "TroubleToggle",
-    },
-    { "tpope/vim-surround" },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
-        init = function()
-            vim.g.indentLine_enabled = 1
-            vim.g.indent_blankline_char = "▏"
-            vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard" }
-            vim.g.indent_blankline_buftype_exclude = { "terminal" }
-            vim.g.indent_blankline_show_trailing_blankline_indent = false
-            vim.g.indent_blankline_show_first_indent_level = false
-        end
-    },
+    { "folke/tokyonight.nvim" }, {
+    "github/copilot.vim",
+    event = "VeryLazy",
+    config = function()
+        vim.g.copilot_no_tab_map = true
+        vim.g.copilot_assume_mapped = true
+        vim.g.copilot_tab_fallback = ""
+        vim.g.copilot_filetypes = {}
+    end
+}, { "folke/trouble.nvim", cmd = "TroubleToggle" }, { "tpope/vim-surround" }, {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    init = function()
+        vim.g.indentLine_enabled = 1
+        vim.g.indent_blankline_char = "▏"
+        vim.g.indent_blankline_filetype_exclude = {
+            "help", "terminal", "dashboard"
+        }
+        vim.g.indent_blankline_buftype_exclude = { "terminal" }
+        vim.g.indent_blankline_show_trailing_blankline_indent = false
+        vim.g.indent_blankline_show_first_indent_level = false
+    end
+}
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
-
 
 -- Trouble.nvim
 lvim.builtin.which_key.mappings["t"] = {
@@ -217,7 +194,7 @@ lvim.builtin.which_key.mappings["t"] = {
     d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "document" },
     q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
     l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
-    r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "references" }
 }
 
 -- github/copilot.vim
@@ -249,41 +226,31 @@ lvim.builtin.dap.active = true
 dap.adapters.delve = {
     type = 'server',
     port = '${port}',
-    executable = {
-        command = 'dlv',
-        args = { 'dap', '-l', '127.0.0.1:${port}' },
-    }
+    executable = { command = 'dlv', args = { 'dap', '-l', '127.0.0.1:${port}' } }
 }
 
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 dap.configurations.go = {
-    {
-        type = "delve",
-        name = "Debug",
-        request = "launch",
-        program = "${file}"
-    },
+    { type = "delve", name = "Debug", request = "launch", program = "${file}" },
     {
         type = "delve",
         name = "Debug test", -- configuration for debugging test files
         request = "launch",
         mode = "test",
         program = "${file}"
-    },
-    -- works with go.mod packages and sub packages
+    }, -- works with go.mod packages and sub packages
     {
         type = "delve",
         name = "Debug test (go.mod)",
         request = "launch",
         mode = "test",
         program = "./${relativeFileDirname}"
-    },
-    -- works with app
+    }, -- works with app
     {
         type = "delve",
         name = "Debug app",
         request = "launch",
         mode = "debug",
         program = "./${relativeFileDirname}"
-    },
+    }
 }
