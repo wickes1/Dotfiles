@@ -9,6 +9,7 @@ $HOME/.screenlayout/default.sh &
 $HOME/.config/awesome/scripts/lock-screen.sh &
 unclutter -idle 10 &
 
+xbindkeys &
 variety &
 nm-applet &
 blueberry-tray &
@@ -16,3 +17,4 @@ fcitx5 &
 # xfce4-power-manager &
 xfce4-clipman &
 flameshot &
+openrgb -p sakura &
