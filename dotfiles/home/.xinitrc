@@ -63,5 +63,4 @@ get_session(){
     echo "dbus-launch ${dbus_args[*]}"
 }
 
-$HOME/.screenlayout/screenlayout.sh
 exec $(get_session)
