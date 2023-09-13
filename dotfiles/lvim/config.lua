@@ -34,7 +34,7 @@ vim.opt.shiftwidth = 4
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":w!<cr>"
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = false

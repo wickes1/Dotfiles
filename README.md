@@ -41,7 +41,7 @@ The current setup is base on arcolinuxb-xfce-v23.05.04-x86_64.iso
 - audio
     - pipewire (multimedia framework)
     - pipewire-audio (audio client)
-    - pavucontrol 
+    - pavucontrol (GUI controller)
     - wireplumber (session manager)
     - pacmixer
 - driver

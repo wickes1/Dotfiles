@@ -27,7 +27,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export LANG=en_US.UTF-8
 export SYSTEMD_EDITOR="nvim"
-export EDITOR="nvim"
+export EDITOR="lvim"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
 # Aliases
