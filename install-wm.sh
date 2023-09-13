@@ -51,3 +51,7 @@ yay -S --noconfirm unclutter
 # Keybinds
 yay -S --noconfirm xbindkeys xkeyboard-config
 rsync $BASEDIR/dotfiles/xbindkeys/. ~ -a
+
+# OpenRGB
+yay -S --noconfirm openrgb
+rsync $BASEDIR/dotfiles/OpenRGB/. ~/.config/OpenRGB -a
