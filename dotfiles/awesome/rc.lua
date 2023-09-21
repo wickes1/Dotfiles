@@ -84,6 +84,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
+-- lain layout
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
         awful.layout.suit.tile,
@@ -99,8 +100,16 @@ tag.connect_signal("request::default_layouts", function()
         -- awful.layout.suit.max.fullscreen,
         -- awful.layout.suit.magnifier,
         -- awful.layout.suit.corner.nw,
+        lain.layout.termfair.center,
+        -- lain.layout.centerwork,
     })
 end)
+
+lain.layout.termfair.nmaster        = 3
+lain.layout.termfair.ncol           = 1
+lain.layout.termfair.center.nmaster = 3
+lain.layout.termfair.center.ncol    = 1
+
 -- }}}
 
 -- {{{ Wallpaper
@@ -126,7 +135,7 @@ end)
 -- {{{ Wibar
 
 -- Keyboard map indicator and switchers
-mykeyboardlayout = awful.widget.keyboardlayout()
+mykeyboardlayout                    = awful.widget.keyboardlayout()
 
 
 -- My custom widget
@@ -162,7 +171,7 @@ local memory            = lain.widget.mem({
     end
 })
 -- Create a textclock widget
-mytextclock             = wibox.widget.textclock()
+mytextclock             = wibox.widget.textclock("%a %b %d %H:%M:%S", 1)
 mytextclock:connect_signal("button::press",
     function(_, _, _, button)
         if button == 1 then cw.toggle() end
