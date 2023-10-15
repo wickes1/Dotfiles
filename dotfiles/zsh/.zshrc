@@ -48,3 +48,5 @@ alias fm="nohup thunar >/dev/null 2>&1 &"
 eval "$(zoxide init zsh)"
 source "$HOME/.scripts.sh"
 lazyload nvm -- 'source /usr/share/nvm/init-nvm.sh'
+lazyload npm -- 'source /usr/share/nvm/init-nvm.sh'
+lazyload npx -- 'source /usr/share/nvm/init-nvm.sh'

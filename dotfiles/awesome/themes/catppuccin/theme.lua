@@ -1,12 +1,12 @@
 local theme                                     = {}
-local gears = require("gears")
-local lain  = require("lain")
-local awful = require("awful")
-local wibox = require("wibox")
-local dpi   = require("beautiful.xresources").apply_dpi
+local gears                                     = require("gears")
+local lain                                      = require("lain")
+local awful                                     = require("awful")
+local wibox                                     = require("wibox")
+local dpi                                       = require("beautiful.xresources").apply_dpi
 
-local os = os
-local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
+local os                                        = os
+local my_table                                  = awful.util.table or gears.table -- 4.{0,1} compatibility
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/catppuccin"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
 theme.font                                      = "Terminus 9"
@@ -77,11 +77,11 @@ function theme.at_screen_connect(s)
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(my_table.join(
-                           awful.button({}, 1, function () awful.layout.inc( 1) end),
-                           awful.button({}, 2, function () awful.layout.set( awful.layout.layouts[1] ) end),
-                           awful.button({}, 3, function () awful.layout.inc(-1) end),
-                           awful.button({}, 4, function () awful.layout.inc( 1) end),
-                           awful.button({}, 5, function () awful.layout.inc(-1) end)))
+        awful.button({}, 1, function() awful.layout.inc(1) end),
+        awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
+        awful.button({}, 3, function() awful.layout.inc(-1) end),
+        awful.button({}, 4, function() awful.layout.inc(1) end),
+        awful.button({}, 5, function() awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
 
@@ -89,7 +89,13 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "bottom", screen = s, height = dpi(18), bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({
+        position = "bottom",
+        screen = s,
+        height = dpi(18),
+        bg = theme.bg_normal,
+        fg = theme.fg_normal
+    })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -102,7 +108,7 @@ function theme.at_screen_connect(s)
             spr,
         },
         s.mytasklist, -- Middle widget
-        { -- Right widgets
+        {             -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             keyboardlayout,
