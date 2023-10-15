@@ -7,6 +7,8 @@ yay -S --noconfirm \
     thunar \
     stacer
 
+rsync $BASEDIR/dotfiles/chrome/ ~/.config -a
+
 # TUI software
 yay -S --noconfirm \
     duf \
@@ -36,7 +38,8 @@ yay -S --noconfirm \
     axel \
     entr \
     ani-cli-git \
-    nvtop
+    nvtop \
+    nmap
 
 tldr --update
 rsync $BASEDIR/dotfiles/lf ~/.config/ -a
