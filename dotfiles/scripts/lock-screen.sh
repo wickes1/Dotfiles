@@ -11,16 +11,16 @@ xidlehook \
     --not-when-audio \
     `# Dim the screen after 120 seconds, undim if user becomes active` \
     --timer 120 \
-    './set-brightness.sh 0.1' \
-    './set-brightness.sh 1' \
+    '~/.local/bin/scripts/set-brightness.sh 0.1' \
+    '~/.local/bin/scripts/set-brightness.sh 1' \
     `# Undim & lock after 20 more seconds` \
     --timer 20 \
     'betterlockscreen -l dim' \
-    './set-brightness.sh 1' \
+    '~/.local/bin/scripts/set-brightness.sh 1' \
     `# Finally, suspend 3 minutes after it locks` \
     --timer 180 \
     'systemctl suspend' \
-    'openrgb -p sakura; ./set-brightness.sh 1'
+    'openrgb -p sakura; ~/.local/bin/scripts/set-brightness.sh 1'
 
 # For external monitor
 # export BRIGHTNESS_VALUE="$(ddcutil getvcp 10 | awk '/Brightness/{print $9}' | sed 's/,//g')"
