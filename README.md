@@ -163,7 +163,7 @@ Theme: Catppuccin Macchiato
 [Vim Search](https://thevaluable.dev/vim-search-find-replace/)
 [AwesomeWM dotfiles](https://github.com/AlphaTechnolog/dotfiles)
 [AwesomeWM customization](http://epsi-rns.github.io/desktop/2019/06/15/awesome-overview.html)
-[Book](Building Your Mouseless Development Environment)
+[Building Your Mouseless Development Environment](https://themouseless.dev/)
 [Code strcuture in lang](https://github.com/epsi-rns/case-examples)
 [ZSH keymap](https://thevaluable.dev/zsh-line-editor-configuration-mouseless/)
 [Lua 101](https://epsi.bitbucket.io/lambda/2020/11/16/playing-with-records-lua-01/)
