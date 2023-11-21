@@ -157,20 +157,20 @@ Theme: Catppuccin Macchiato
 
 ## Reference
 
-[Best tool comparison](https://www.linuxlinks.com/ClipboardManagers/)
-[LunarVim configuration](https://www.lunarvim.org/docs/faq#how-do-i-use-lunarvim-in-neovide)
-[ZSH files](https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where)
-[Vim Search](https://thevaluable.dev/vim-search-find-replace/)
-[AwesomeWM dotfiles](https://github.com/AlphaTechnolog/dotfiles)
-[AwesomeWM customization](http://epsi-rns.github.io/desktop/2019/06/15/awesome-overview.html)
-[Building Your Mouseless Development Environment](https://themouseless.dev/)
-[Code strcuture in lang](https://github.com/epsi-rns/case-examples)
-[ZSH keymap](https://thevaluable.dev/zsh-line-editor-configuration-mouseless/)
-[Lua 101](https://epsi.bitbucket.io/lambda/2020/11/16/playing-with-records-lua-01/)
-[Application list](https://wiki.archlinux.org/title/List_of_applications#top-page)
-[EWW powermenu](https://dharmx.is-a.dev/eww-powermenu/)
-[AwesomeWM example](https://github.com/muammar/awesome/blob/master/autostart.lua)
-<http://epsi-rns.github.io/desktop/2019/06/15/awesome-overview.html>
+[Best tool comparison](https://www.linuxlinks.com/ClipboardManagers/)<br>
+[LunarVim configuration](https://www.lunarvim.org/docs/faq#how-do-i-use-lunarvim-in-neovide)<br>
+[ZSH files](https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where)<br>
+[Vim Search](https://thevaluable.dev/vim-search-find-replace/)<br>
+[AwesomeWM dotfiles](https://github.com/AlphaTechnolog/dotfiles)<br>
+[AwesomeWM customization](http://epsi-rns.github.io/desktop/2019/06/15/awesome-overview.html)<br>
+[Building Your Mouseless Development Environment](https://themouseless.dev/)<br>
+[Code strcuture in lang](https://github.com/epsi-rns/case-examples)<br>
+[ZSH keymap](https://thevaluable.dev/zsh-line-editor-configuration-mouseless/)<br>
+[Lua 101](https://epsi.bitbucket.io/lambda/2020/11/16/playing-with-records-lua-01/)<br>
+[Application list](https://wiki.archlinux.org/title/List_of_applications#top-page)<br>
+[EWW powermenu](https://dharmx.is-a.dev/eww-powermenu/)<br>
+[AwesomeWM example](https://github.com/muammar/awesome/blob/master/autostart.lua)<br>
+<http://epsi-rns.github.io/desktop/2019/06/15/awesome-overview.html><br>
 
 ## Change default editor for sudo
 
