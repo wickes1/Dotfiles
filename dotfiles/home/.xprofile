@@ -6,7 +6,6 @@ BROWSER=google-chrome-stable
 picom &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 $HOME/.local/bin/scripts/lock-screen.sh &
-# $HOME/.screenlayout/default.sh &
 unclutter -idle 10 &
 
 xbindkeys &
@@ -18,4 +17,4 @@ fcitx5 &
 xfce4-clipman &
 flameshot &
 openrgb -p sakura &
-autorandr --load vert
+autorandr --load right-horizontal
