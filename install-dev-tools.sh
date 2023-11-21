@@ -15,8 +15,8 @@ cargo install csvlens
 
 # Node setup
 # Uninstall system node/npm if installed
-yay -S --noconfirm nvm yarn
-nvm install --lts
+yay -S --noconfirm fnm yarn
+fnm default system
 npm install --global serve
 
 # Docker setup

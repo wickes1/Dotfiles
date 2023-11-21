@@ -17,7 +17,7 @@ plugins=(
     # custom plugins
     fast-syntax-highlighting
     zsh-autosuggestions
-    zsh-lazyload # zsh-lazyload will execute command until it was called
+    # zsh-lazyload # zsh-lazyload will execute command until it was called
     # zsh-defer # zsh-defer will execute command until zsh starup completed
     zsh-dirhistory
 )
@@ -46,7 +46,5 @@ alias fm="nohup thunar >/dev/null 2>&1 &"
 
 # Other
 eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd)"
 source "$HOME/.scripts.sh"
-lazyload nvm -- 'source /usr/share/nvm/init-nvm.sh'
-lazyload npm -- 'source /usr/share/nvm/init-nvm.sh'
-lazyload npx -- 'source /usr/share/nvm/init-nvm.sh'
