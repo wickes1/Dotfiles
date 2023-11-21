@@ -10,6 +10,7 @@ Terminal: Kitty
 Editor: Lunarvim
 Theme: Catppuccin Macchiato
 
+## Setup
 
 - pluggable authentication modules(PAM)
 - package manager
@@ -134,25 +135,28 @@ Theme: Catppuccin Macchiato
   - xclock(default boot program from xinit)
   - arandr(xrandr gui)
   - inxi(hardware overview)
-- faq
-  - connect to wifi
-    - nmcli device wifi connect <SSID> password <PW>
-  - show all os in grub
-    - install `os-prober`, `update-grub`
-    - `sudo os-prober`
-    - `sudo update-grub`
-  - brightness control
-    - internal monitor (e.g. laptop)
-      - brightnessctl
-    - external monitor
-      - ddcutil
+
+## FAQ
+
+- connect to wifi
+  - nmcli device wifi connect <SSID> password <PW>
+- show all os in grub
+  - install `os-prober`, `update-grub`
+  - `sudo os-prober`
+  - `sudo update-grub`
+- brightness control
+  - internal monitor (e.g. laptop)
+    - brightnessctl
+  - external monitor
+    - ddcutil
 - laptop optimize
   - touchpad
     - natural scrolling
     - single tap
     - [libinput](https://wiki.archlinux.org/title/Libinput#Via_Xorg_configuration_file)
 
-- resources:
+## Reference
+
 [Best tool comparison](https://www.linuxlinks.com/ClipboardManagers/)
 [LunarVim configuration](https://www.lunarvim.org/docs/faq#how-do-i-use-lunarvim-in-neovide)
 [ZSH files](https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where)
