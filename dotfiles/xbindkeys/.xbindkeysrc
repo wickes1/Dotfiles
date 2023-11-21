@@ -35,15 +35,25 @@
 
 
 
-#Birghtness Up
-"ddcutil setvcp 10 + 10 --sleep-multiplier 1"
-    m:0x11 + c:68
-    Shift+Mod2 + F2 
+#Birghtness Up Display 1
+"ddcutil --display 1 setvcp 10 + 10"
+    m:0x15 + c:60
+    Control+Shift+Mod2 + period 
 
-#Birghtness Down
-"ddcutil setvcp 10 - 10 --sleep-multiplier 1"
-    m:0x11 + c:67
-    Shift+Mod2 + F1 
+#Birghtness Down Display 1
+"ddcutil --display 1 setvcp 10 - 10"
+    m:0x15 + c:59
+    Control+Shift+Mod2 + comma 
+
+#Birghtness Up Display 2
+"ddcutil --display 2 setvcp 10 + 10"
+    m:0x15 + c:48
+    Control+Shift+Mod2 + apostrophe 
+
+#Birghtness Down Display 2
+"ddcutil --display 2 setvcp 10 - 10"
+    m:0x15 + c:47
+    Control+Shift+Mod2 + semicolon 
 
 #
 # End of xbindkeys configuration
