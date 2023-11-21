@@ -11,3 +11,4 @@ rsync $BASEDIR/dotfiles/lvim ~/.config -a
 rsync $BASEDIR/dotfiles/fsh ~/.config -a --delete-after
 rsync $BASEDIR/dotfiles/lf ~/.config -a --delete-after
 rsync $BASEDIR/dotfiles/scripts ~/.local/bin -a
+rsync $BASEDIR/dotfiles/espanso ~/.config -a --delete-after
