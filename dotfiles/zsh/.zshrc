@@ -36,7 +36,7 @@ alias bk="backup; restore; echo 'Dotfiles backup and restored'"
 alias c="copypath"
 alias envycontrol="curl -s https://raw.githubusercontent.com/bayasdev/envycontrol/main/envycontrol.py | sudo python -"
 alias h='history'
-alias lf='~/.config/lf/lfrun'
+alias lf='yazi'
 alias ll="lsd -lh"
 alias nv="~/Dotfiles/lvim-gui.sh"
 alias restore="~/Dotfiles/restore-dotfiles.sh"
@@ -44,7 +44,16 @@ alias v="lvim ."
 alias wtr="curl -s wttr.in"
 alias fm="nohup thunar >/dev/null 2>&1 &"
 
+# AWS
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/bin/aws_completer' aws
+
+# Kitty
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # Other
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 source "$HOME/.scripts.sh"
+
