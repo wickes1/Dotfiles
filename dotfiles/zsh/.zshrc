@@ -13,6 +13,7 @@ plugins=(
     extract
     copybuffer
     copypath
+    kubectl
 
     # custom plugins
     fast-syntax-highlighting
