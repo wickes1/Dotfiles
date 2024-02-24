@@ -44,6 +44,8 @@ alias restore="~/Dotfiles/restore-dotfiles.sh"
 alias v="lvim ."
 alias wtr="curl -s wttr.in"
 alias fm="nohup thunar >/dev/null 2>&1 &"
+alias kustomizeapply="kustomize build . --enable-helm | kubectl apply -f -; rm -r ./charts"
+alias kustomizedelete="kustomize build . --enable-helm | kubectl delete -f -; rm -r ./charts"
 
 # AWS
 autoload bashcompinit && bashcompinit
