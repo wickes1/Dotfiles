@@ -14,6 +14,8 @@ plugins=(
     copybuffer
     copypath
     kubectl
+    terraform
+    npm
 
     # custom plugins
     fast-syntax-highlighting
@@ -40,13 +42,16 @@ alias h='history'
 alias lf='yazi'
 alias ll="lsd -lh"
 alias nv="~/Dotfiles/lvim-gui.sh"
-alias restore="~/Dotfiles/restore-dotfiles.sh"
+alias envrestore="~/Dotfiles/restore-dotfiles.sh"
+alias envdiff="~/Dotfiles/diff-dotfiles.sh"
 alias v="lvim ."
 alias wtr="curl -s wttr.in"
 alias fm="nohup thunar >/dev/null 2>&1 &"
 alias kapply="kustomize build . --enable-helm | kubectl apply -f -; [ -e charts ] && rm -r ./charts"
 alias kdelete="kustomize build . --enable-helm | kubectl delete -f -; [ -e charts ] &&  rm -r ./charts"
 alias kadd="kustomize edit add resource *.yaml"
+alias vexample='yq -r "." secret.vault.yaml | jq -r "to_entries[] | \"\(.key): placeholder\"" > secret.example.yaml'
+alias zj="zellij"
 
 # AWS
 autoload bashcompinit && bashcompinit
@@ -61,3 +66,6 @@ eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 source "$HOME/.scripts.sh"
 
+# setting for gup command (auto generate)
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i

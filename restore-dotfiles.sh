@@ -1,3 +1,5 @@
+#!/bin/bash
+
 BASEDIR=$(dirname $(realpath -e $0))
 
 # --delete-after will delete files that are not in the source directory after the sync
@@ -11,4 +13,6 @@ rsync $BASEDIR/dotfiles/lvim ~/.config -a
 rsync $BASEDIR/dotfiles/fsh ~/.config -a --delete-after
 rsync $BASEDIR/dotfiles/lf ~/.config -a --delete-after
 rsync $BASEDIR/dotfiles/scripts ~/.local/bin -a
-rsync $BASEDIR/dotfiles/espanso ~/.config -a --delete-after
+# rsync $BASEDIR/dotfiles/espanso ~/.config -a --delete-after
+
+echo "Dotfiles restored"
