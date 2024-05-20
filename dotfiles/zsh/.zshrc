@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-zstyle ':omz:update' mode auto # update automatically without asking
+zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 14
 
 ZSH_THEME="bira"
@@ -20,8 +20,6 @@ plugins=(
     # custom plugins
     fast-syntax-highlighting
     zsh-autosuggestions
-    # zsh-lazyload # zsh-lazyload will execute command until it was called
-    # zsh-defer # zsh-defer will execute command until zsh starup completed
     zsh-dirhistory
 )
 
@@ -46,17 +44,17 @@ alias envrestore="~/Dotfiles/restore-dotfiles.sh"
 alias envdiff="~/Dotfiles/diff-dotfiles.sh"
 alias v="lvim ."
 alias wtr="curl -s wttr.in"
-alias fm="nohup thunar >/dev/null 2>&1 &"
+alias fm="nohup thunar >/dev/null 2>&1 & disown"
 alias kapply="kustomize build . --enable-helm | kubectl apply -f -; [ -e charts ] && rm -r ./charts"
-alias kdelete="kustomize build . --enable-helm | kubectl delete -f -; [ -e charts ] &&  rm -r ./charts"
+alias kdelete="kustomize build . --enable-helm | kubectl delete -f -; [ -e charts ] && rm -r ./charts"
 alias kadd="kustomize edit add resource *.yaml"
 alias vexample='yq -r "." secret.vault.yaml | jq -r "to_entries[] | \"\(.key): placeholder\"" > secret.example.yaml'
 alias zj="zellij"
 
 # AWS
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/usr/bin/aws_completer' aws
+# autoload bashcompinit && bashcompinit
+# autoload -Uz compinit && compinit
+# complete -C '/usr/bin/aws_completer' aws
 
 # Kitty
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
@@ -65,7 +63,3 @@ complete -C '/usr/bin/aws_completer' aws
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 source "$HOME/.scripts.sh"
-
-# setting for gup command (auto generate)
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i

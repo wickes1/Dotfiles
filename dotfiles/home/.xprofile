@@ -1,20 +1,44 @@
 # /bin/sh
 
-EDITOR=nvim
-BROWSER=google-chrome-stable
+# Set environment variables
+export EDITOR=nvim
+export BROWSER=google-chrome-stable
 
-picom &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-$HOME/.local/bin/scripts/lock-screen.sh &
-unclutter -idle 10 &
+# Start compositor with logs redirected to /dev/null
+picom --config $HOME/.config/picom/picom.conf > /dev/null 2>&1 &
 
-xbindkeys &
-variety &
-nm-applet &
-blueberry-tray &
-fcitx5 &
-# xfce4-power-manager &
-xfce4-clipman &
-flameshot &
-openrgb -p sakura &
-autorandr --load right-horizontal
+# Start polkit authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 > /dev/null 2>&1 &
+
+# Start custom lock screen script
+$HOME/.local/bin/scripts/lock-screen.sh > /dev/null 2>&1 &
+
+# Start unclutter to hide mouse cursor when idle
+unclutter -idle 10 > /dev/null 2>&1 &
+
+# Start xbindkeys for key bindings
+xbindkeys > /dev/null 2>&1 &
+
+# Start variety wallpaper changer
+variety > /dev/null 2>&1 &
+
+# Start network manager applet
+nm-applet > /dev/null 2>&1 &
+
+# Start blueberry tray for Bluetooth management
+blueberry-tray > /dev/null 2>&1 &
+
+# Start fcitx5 input method framework
+fcitx5 > /dev/null 2>&1 &
+
+# Start clipboard manager
+xfce4-clipman > /dev/null 2>&1 &
+
+# Start screenshot tool
+flameshot > /dev/null 2>&1 &
+
+# Start OpenRGB with a specific profile
+openrgb -p sakura > /dev/null 2>&1 &
+
+# Load monitor configuration with autorandr
+autorandr --load 3-monitor > /dev/null 2>&1 &

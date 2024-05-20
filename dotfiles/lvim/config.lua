@@ -4,11 +4,12 @@ vim.opt.timeoutlen = 1000
 
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
 lvim.lint_on_save = true
+lvim.colorscheme = "catppuccin-macchiato"
 lvim.transparent_window = true
-lvim.leader = "space"
 
+-- https://www.lunarvim.org/docs/beginners-guide/keybinds-overview
+lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w!<cr>"
 lvim.keys.normal_mode["<C-a>"] = "ggVG"
 
@@ -43,7 +44,9 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {{command = "ruff", filetypes = {"python"}}}
 
 -- https://www.lunarvim.org/docs/configuration/plugins
+-- :LvimSyncCorePlugins
 lvim.plugins = {
+    {"catppuccin/nvim", name = "catppuccin", opts = {flavour = "macchiato"}},
     {"folke/tokyonight.nvim"}, {
         "github/copilot.vim",
         event = "VeryLazy",
