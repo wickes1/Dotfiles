@@ -1,44 +1,57 @@
-# /bin/sh
+#!/bin/sh
 
 # Set environment variables
 export EDITOR=nvim
 export BROWSER=google-chrome-stable
 
-# Start compositor with logs redirected to /dev/null
-picom --config $HOME/.config/picom/picom.conf > /dev/null 2>&1 &
+function run {
+    if ! pgrep $1 ;
+    then
+        $@ > /dev/null 2>&1 &
+    fi
+}
 
-# Start polkit authentication agent
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 > /dev/null 2>&1 &
+# gnome-polkit for authentication
+run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Start custom lock screen script
-$HOME/.local/bin/scripts/lock-screen.sh > /dev/null 2>&1 &
+# xrandr for monitor configuration
+run $HOME/.screenlayout/2-monitor.sh
+# run autorandr --load 3-monitor
 
-# Start unclutter to hide mouse cursor when idle
-unclutter -idle 10 > /dev/null 2>&1 &
+# picom for compositor
+run picom --config $HOME/.config/picom/picom.conf
 
-# Start xbindkeys for key bindings
-xbindkeys > /dev/null 2>&1 &
+# volumeicon for volume management
+run volumeicon
 
-# Start variety wallpaper changer
-variety > /dev/null 2>&1 &
+# nm-applet for network management
+run nm-applet
 
-# Start network manager applet
-nm-applet > /dev/null 2>&1 &
+# fcitx5 for input method
+run fcitx5
 
-# Start blueberry tray for Bluetooth management
-blueberry-tray > /dev/null 2>&1 &
+# xfce4-clipman for clipboard management
+run xfce4-clipman
+# run copyq --start-server
 
-# Start fcitx5 input method framework
-fcitx5 > /dev/null 2>&1 &
+# blueman-applet for bluetooth management
+# run blueman-applet
+run blueberry-tray
 
-# Start clipboard manager
-xfce4-clipman > /dev/null 2>&1 &
+# flameshot for screenshots
+run flameshot
 
-# Start screenshot tool
-flameshot > /dev/null 2>&1 &
+# variety for wallpaper management
+run variety
 
-# Start OpenRGB with a specific profile
-openrgb -p sakura > /dev/null 2>&1 &
+# xidlehook for screen locking
+run $HOME/.local/bin/scripts/lock-screen.sh
 
-# Load monitor configuration with autorandr
-autorandr --load 3-monitor > /dev/null 2>&1 &
+# unclutter for hiding mouse cursor when idle
+run unclutter -idle 10
+
+# xbindkeys for key bindings
+run xbindkeys
+
+# openrgb for RGB control
+run openrgb -p sakura

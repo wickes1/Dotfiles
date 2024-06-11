@@ -33,11 +33,15 @@ lvim.lsp.installer.setup.automatic_installation = false
 lvim.lsp.automatic_configuration.skipped_servers =
     vim.tbl_filter(function(server) return server ~= "pyright" end,
                    lvim.lsp.automatic_configuration.skipped_servers)
+lvim.lsp.automatic_configuration.skipped_servers =
+    vim.tbl_filter(function(server) return server ~= "lua_ls" end,
+                   lvim.lsp.automatic_configuration.skipped_servers)
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
     {command = "ruff", filetypes = {"python"}},
-    {command = "lua-format", filetypes = {"lua"}}
+    {command = "lua-format", filetypes = {"lua"}},
+    {command = "biome", filetypes = {"jsonc"}}
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
