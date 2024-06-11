@@ -1,0 +1,88 @@
+#!/bin/bash
+
+iDIR="$HOME/.config/swaync/icons"
+# Get brightness
+get_backlight() {
+    LIGHT=$(ddccontrol -r 0x10 dev:/dev/i2c-7 | rg -o 'Control 0x10: \+/(\d+)/\d+ C \[Brightness\]' -r '$1')
+    echo "${LIGHT}"
+}
+
+# Get icons
+get_icon() {
+    current="$(get_backlight)"
+	if   [ "$current" -le "20" ]; then
+		icon="$iDIR/brightness-20.png"
+	elif [ "$current" -le "40" ]; then
+		icon="$iDIR/brightness-40.png"
+	elif [ "$current" -le "60" ]; then
+		icon="$iDIR/brightness-60.png"
+	elif [ "$current" -le "80" ]; then
+		icon="$iDIR/brightness-80.png"
+	else
+		icon="$iDIR/brightness-100.png"
+	fi
+}
+
+get_monitors() {
+    MONITORS=$(ddcutil detect | grep -oP 'I2C bus:  /dev/i2c-\K[0-9]+')
+    echo "$MONITORS"
+}
+
+# Notify
+notify_user() {
+    notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(get_backlight)"
+}
+
+set_brightness() {
+    local busno=$1
+    local brightness=$2
+    ddccontrol -r 0x10 -w $brightness dev:/dev/i2c-$busno >> /dev/null 2>&1
+}
+
+# Increase brightness
+inc_backlight() {
+    LIGHT=$(get_backlight)
+    MONITORS=$(get_monitors)
+
+    for monitor in $MONITORS; do
+        set_brightness $monitor $((LIGHT + 10))
+    done
+
+    get_icon && notify_user
+}
+
+# Decrease brightness
+dec_backlight() {
+    LIGHT=$(get_backlight)
+    MONITORS=$(get_monitors)
+
+    for monitor in $MONITORS; do
+        set_brightness $monitor $((LIGHT - 10))
+    done
+
+    get_icon && notify_user
+}
+
+set_backlight() {
+    local brightness=$1
+    MONITORS=$(get_monitors)
+
+    for monitor in $MONITORS; do
+        set_brightness $monitor $brightness &
+    done
+
+    get_icon && notify_user
+}
+
+# Execute accordingly
+if [[ "$1" == "--get" ]]; then
+    get_backlight
+elif [[ "$1" == "--inc" ]]; then
+    inc_backlight
+elif [[ "$1" == "--dec" ]]; then
+    dec_backlight
+elif [[ "$1" == "--set" ]]; then
+    set_backlight $2
+else
+    get_backlight
+fi
